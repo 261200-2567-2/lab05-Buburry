@@ -1,17 +1,42 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        // Create Job Accessories
+        JobAccessory wizardHat = new JobAccessory("Wizard Hat", "hat", 20, 2, 1.5, 50, "wizard");
+        JobAccessory warriorShield = new JobAccessory("Warrior Shield", "shield", 30, 8, -0.5, 20, "warrior");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        // Create Characters
+        wizard gandalf = new wizard("Gandalf");
+        warrior aragorn = new warrior("Aragorn");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        // Display Initial Stats
+        System.out.println("Initial Stats:");
+        gandalf.displayCharacter();
+        aragorn.displayCharacter();
+        System.out.println(" ");
+
+        aragorn.equipJobAccessory(warriorShield);
+        gandalf.equipJobAccessory(wizardHat);
+
+        // Wizard casts Fireball on Warrior
+        System.out.println("\nWizard casts Fireball:");
+        gandalf.Fireball(aragorn);
+        System.out.println(" ");
+
+        // Display Updated Stats
+        System.out.println("\nUpdated Stats:");
+        gandalf.displayCharacter();
+        aragorn.displayCharacter();
+        System.out.println(" ");
+
+        BuffAccessory space = new BuffAccessory(
+        "Space", "belt", 6, 1, 1, 50, 5, 0);
+       BuffAccessory Ocean = new BuffAccessory(
+                "Ocean", "necklace", 0, 10, 5, 10, 6, 0);
+
+        aragorn.equipAccessoryBelt(space);
+        aragorn.equipAccessoryNeck(Ocean);
+        aragorn.Endurace();
+        aragorn.displayCharacter();
+        aragorn.levelup();
     }
 }
