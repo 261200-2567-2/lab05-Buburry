@@ -53,4 +53,17 @@ public class warrior extends Character {
         System.out.println("Job Accessory: " +
                 (jobAccessory == null ? "None" : jobAccessory.getAccessoryName()));
     }
+    @Override
+    public void recalculateStats() {
+        super.recalculateStats();
+
+        // Add effects of the neck accessory (if equipped)
+        if (jobAccessory != null) {
+            speed += jobAccessory.getAffectspeed();
+            damage += jobAccessory.getDamage();
+            defense += jobAccessory.getDefense();
+            mana += jobAccessory.getMana();
+        }
+
+    }
 }
